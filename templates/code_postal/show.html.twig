@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}CodePostal{% endblock %}
+
+{% block body %}
+    <h1>CodePostal</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ code_postal.id }}</td>
+            </tr>
+            <tr>
+                <th>Code</th>
+                <td>{{ code_postal.code }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('code_postal_index') }}">back to list</a>
+
+    <a href="{{ path('code_postal_edit', {'id': code_postal.id}) }}">edit</a>
+
+    {{ include('code_postal/_delete_form.html.twig') }}
+{% endblock %}

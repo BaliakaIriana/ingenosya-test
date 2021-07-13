@@ -1,0 +1,16 @@
+<select id="selector">
+    <option value="1">Dirigeant</option>
+    <option value="2">Société</option>
+</select>
+<div id="dirigeant">
+    {{ form_start(form) }}
+    {{ form_widget(form) }}
+    <button class="btn btn-primary">{{ button_label|default('Ajouter dirigeant') }}</button>
+    {{ form_end(form) }}
+</div>
+<div id="societe" style="display: none;">
+    {{ form_start(formsoc) }}
+    {{ form_widget(formsoc) }}
+    <button class="btn btn-primary">{{ button_label|default('Ajouter société') }}</button>
+    {{ form_end(formsoc) }}
+</div>
