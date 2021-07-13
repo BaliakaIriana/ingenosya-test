@@ -64,6 +64,7 @@ class SocieteController extends AbstractController
      */
     public function edit(Request $request, Societe $societe): Response
     {
+        $societe->setPostal($societe->getVille()->getCodePostal());
         $form = $this->createForm(SocieteType::class, $societe);
         $form->handleRequest($request);
 

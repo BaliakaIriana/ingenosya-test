@@ -21,9 +21,26 @@ require('bootstrap');
 // require('bootstrap/js/dist/tooltip');
 // require('bootstrap/js/dist/popover');
 
+function getVillesOfPostal($postal, $villes) {
+    $.get('/code/postal/' + $postal.val() + '/villes').then((res) => {
+        $villes.empty();
+        let $option;
+        for (const resKey in res) {
+            const item = res[resKey];
+            $option = $('<option>');
+            $option.attr('value', item.id);
+            $option.html(item.nom);
+            $villes.append($option);
+        }
+    });
+}
+
 $(document).ready(function() {
     // $('[data-toggle="popover"]').popover();
-    let $selector = $('#selector');
+    const $selector = $('#selector');
+    const $postal = $('#societe_postal');
+    const $villes = $('#societe_ville');
+    getVillesOfPostal($postal, $villes);
     $selector.on('change', function() {
         const val = $selector.val();
         if(val === '1') {
@@ -35,4 +52,8 @@ $(document).ready(function() {
             $('#societe').show();
         }
     });
+    $postal.on('change', function (){
+       getVillesOfPostal($postal, $villes);
+    });
+
 });

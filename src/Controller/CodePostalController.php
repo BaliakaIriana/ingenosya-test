@@ -5,7 +5,9 @@ namespace App\Controller;
 use App\Entity\CodePostal;
 use App\Form\CodePostalType;
 use App\Repository\CodePostalRepository;
+use App\Repository\VilleRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -90,5 +92,14 @@ class CodePostalController extends AbstractController
         }
 
         return $this->redirectToRoute('code_postal_index', [], Response::HTTP_SEE_OTHER);
+    }
+
+
+    /**
+     * @Route("/{id}/villes", name="ville_by_postal", methods={"GET"})
+     */
+    public function getVilleByPostal(Request $request, CodePostal $codePostal, VilleRepository $repository): Response
+    {
+        return new JsonResponse($repository->findByCodePostal($codePostal));
     }
 }

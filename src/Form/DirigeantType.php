@@ -21,7 +21,8 @@ class DirigeantType extends AbstractType
                    'H' => true,
                    'F' => false
                ],
-                'expanded' => true
+                'expanded' => true,
+                'data' => true
             ])
             ->add('email')
         ;

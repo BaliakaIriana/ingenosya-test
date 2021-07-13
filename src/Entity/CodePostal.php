@@ -25,7 +25,7 @@ class CodePostal
     private $code;
 
     /**
-     * @ORM\OneToMany(targetEntity=Ville::class, mappedBy="code_postal")
+     * @ORM\OneToMany(targetEntity=Ville::class, mappedBy="code_postal", fetch="EAGER")
      */
     private $villes;
 

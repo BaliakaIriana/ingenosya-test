@@ -8,10 +8,6 @@
     {% block stylesheets %}
         {{ encore_entry_link_tags('app') }}
     {% endblock %}
-
-    {% block javascripts %}
-        {{ encore_entry_script_tags('app') }}
-    {% endblock %}
 </head>
 <body>
 <nav class="navbar navbar-dark bg-dark navbar-expand-lg ">
@@ -24,9 +20,25 @@
             <li class="nav-item">
                 <a class="nav-link" href="{{ path('societe_index') }}">Liste sociétés</a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ path('code_postal_index') }}">Liste code postal</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ path('ville_index') }}">Liste villes</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ path('type_societe_index') }}">Liste type sociétés</a>
+            </li>
         </ul>
     </div>
 </nav>
-{% block body %}{% endblock %}
+<div class="container p-2">
+
+    {% block body %}{% endblock %}
+</div>
+
+{% block javascripts %}
+    {{ encore_entry_script_tags('app') }}
+{% endblock %}
 </body>
 </html>
