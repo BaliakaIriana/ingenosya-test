@@ -20,6 +20,14 @@ $ cd  ingenosya/
 $ composer install
 ```
 
+Database installation
+------------
+Create a database named `ingenosya` in MySQL and import the SQL file `ingenosya.sql` located at
+```
+ingenosya/database/ingenosya.sql
+```
+
+
 Usage
 -----
 - Configure your environnement file .env (Database, MailDSN, ...)
@@ -36,16 +44,6 @@ Then access the application in your browser at the given URL (<https://localhost
 If you don't have the Symfony binary installed, run `php -S localhost:8000 -t public/`
 to use the built-in PHP web server or [configure a web server][3] like Nginx or
 Apache to run the application.
-
-Tests
------
-
-Execute this command to run tests:
-
-```bash
-$ cd ingenosya/
-$ ./bin/phpunit
-```
 
 [1]: https://www.ingenosya.com/
 [2]: https://symfony.com/doc/current/reference/requirements.html
