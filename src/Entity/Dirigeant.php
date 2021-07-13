@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Repository\DirigeantRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=DirigeantRepository::class)
@@ -29,6 +30,9 @@ class Dirigeant
 
     /**
      * @ORM\Column(type="string", length=180)
+     * @Assert\Email(
+     *     message="Email invalide."
+     * )
      */
     private $email;
 
